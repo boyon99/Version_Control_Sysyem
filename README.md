@@ -67,8 +67,12 @@ $ git config --global core.pager "cat"
 
 1. `git add [파일명]` : 파일이 스테이징된다.
   - `git add .` : 변경된 모든 스테이징한다.
-2. `git commit` : 파일이 local repo로 넘어간다. `git commit -m “[커밋메세지]”`으로 단축해서 사용할 수 있다.
-3. `git push` : remote repo로 파일을 올린다. `git push [저장소이름] [브랜치명]`을 통해 저장소와 브랜치를 설정할 수 있다.
+2. `git commit` : 파일이 local repo로 넘어간다. 
+   -  `git commit -m “[커밋메세지]”`으로 단축해서 사용할 수 있다.
+3. `git push` : remote repo로 파일을 올린다. 
+   - `git push [저장소이름] [브랜치명]`을 통해 해당 저장소의 해당 브랜치의 내용을 올린다.
+4. `git pull` : 원격저장소의 내용을 지역저장소로 가져온다.
+   - `git pull [저장소이름] [브랜치명]`을 통해 해당 저장소의 내용을 해당 브랜치에 가져온다.
 
 - `git status` : 현재의 깃 상태를 확인할 수 있다.
 - `git log` : 저장소에 저장된 버전을 확인할 수 있다.
@@ -107,3 +111,20 @@ $ git config --global core.pager "cat"
 ### remote
 생성한 지역저장소를 원격 저장소와 연결하기
 1. `git remote add [저장소이름] [깃허브주소]` : 연결할 깃허브 주소와 저장소 이름을 설정한다.
+   - `git remote -v` : 원격저장소를 확인한다.
+
+### 레포 2개 연결하는 법
+1. git remote로 각각의 원격 저장소를 등록한다.
+2. 새로 브랜치를 만든다.
+3. 만든 브랜치를 푸시한다.
+
+```console
+git remote add myrepo 깃허브주소
+git branch newbranch
+git checkout newbranch
+git push myrepo newbranch
+```
+
+### 원격저장소 복제하기
+- `git clone [깃허브주소] [저장할폴더이름]` : 원격저장소를 복제하여 지역저장소로 가져온다.
+
