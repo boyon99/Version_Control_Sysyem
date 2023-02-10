@@ -70,6 +70,7 @@ $ git config --global core.pager "cat"
   - `git add .` : 변경된 모든 스테이징한다.
 2. `git commit` : 파일이 local repo로 넘어간다. 
    -  `git commit -m “[커밋메세지]”`으로 단축해서 사용할 수 있다.
+   -  `git commit --amend`로 커밋 메세지를 수정할 수 있다.
 3. `git push` : remote repo로 파일을 올린다. 
    - `git push [저장소이름] [브랜치명]`을 통해 해당 저장소의 해당 브랜치의 내용을 올린다.
 4. `git pull` : 원격저장소의 내용을 지역저장소로 가져온다.
@@ -126,6 +127,8 @@ git checkout newbranch
 git push myrepo newbranch
 ```
 
-### 원격저장소 복제하기
+#### 원격저장소 복제하기
 - `git clone [깃허브주소] [저장할폴더이름]` : 원격저장소를 복제하여 지역저장소로 가져온다.
 
+#### 원격브랜치 정보 가져오기
+- `git fetch` : 커밋을 가져와 합치는 풀 명령과 다르게 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 
