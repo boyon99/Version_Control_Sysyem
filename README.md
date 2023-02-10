@@ -2,11 +2,9 @@
 커맨드 라인 인터페이스 방식(Command Line Interface, CLI)을 통한 깃 활용 실습
 
 
-## 
+# GIT
+`git` 입력시 다음과 같은 내용을 확인할 수 있다.
 
-```console
-git
-```
 ```
 다음은 여러가지 상황에서 자주 사용하는 깃 명령입니다:
 
@@ -46,7 +44,9 @@ git
 <br/>
 
 
-### 깃 환경 설정하기
+## 깃 환경 설정하기
+`git config` 명령을 통해 사용자 정보를 설정할 수 있다. `--global` 옵션 추가 시 현재 컴퓨터에 있는 모든 저장소에서 같은 사용자 정보를 사용하도록 설정하며 `git config --list` 로 설정을 확인하고 `vi ~/.gitconfig`을 통해 수정할 수 있다.
+
 ```console
 $ git config --global user.name ""
 $ git config --global user.email ""
@@ -54,29 +54,28 @@ $ git config --global core.editor "vim"
 $ git config --global core.pager "cat"
 ```
 
-`git config` 명령을 통해 사용자 정보를 설정할 수 있으며 `--global` 옵션 추가 시 현재 컴퓨터에 있는 모든 저장소에서 같은 사용자 정보를 사용하도록 설정한다. `git config --list` 로 설정을 확인할 수 있고 수정이 필요할 경우 `vi ~/.gitconfig`을 통해 파일에서 수정이 가능하다.
+<br/>
 
+## 깃 시작하기
+폴더 생성 후 `git init`하여 깃을 세팅한다.
+
+### 버전 만들기
+
+- `git add [파일명]` : 파일이 스테이징된다.
+   - `git add .` : 변경된 모든 파일을 스테이징한다.
+- `git commit` : 파일이 local repo로 넘긴다. 
+   -  `git commit -m “[커밋메세지]”` : 커밋메세지를 단축해서 사용한다.
+   -  `git commit -am "[커밋메세지]"` : `git add`와 커밋메세지를 단축해서 사용한다.
+   -  `git commit --amend`로 커밋 메세지를 수정한다.
+- `git push` : remote repo로 파일을 올린다. 
+   - `git push [저장소이름] [브랜치명]`을 통해 해당 저장소에 해당 브랜치의 내용을 올린다.
+- `git pull` : 원격저장소의 내용을 지역저장소로 가져온다.
+   - `git pull [저장소이름] [브랜치명]`을 통해 해당 저장소의 내용을 해당 브랜치에 가져온다.
 
 <br/>
 
-### 깃 저장소 만들기
-- 폴더 생성 후 `git init` 
-- 생성한 레포지토리 주소 가져오기 `git clone [repo addr] && cd [repo addr]`
-
-### 버전 만들기
-[](./version.png)
-
-1. `git add [파일명]` : 파일이 스테이징된다.
-  - `git add .` : 변경된 모든 스테이징한다.
-2. `git commit` : 파일이 local repo로 넘어간다. 
-   -  `git commit -m “[커밋메세지]”`으로 단축해서 사용할 수 있다.
-   -  `git commit --amend`로 커밋 메세지를 수정할 수 있다.
-3. `git push` : remote repo로 파일을 올린다. 
-   - `git push [저장소이름] [브랜치명]`을 통해 해당 저장소의 해당 브랜치의 내용을 올린다.
-4. `git pull` : 원격저장소의 내용을 지역저장소로 가져온다.
-   - `git pull [저장소이름] [브랜치명]`을 통해 해당 저장소의 내용을 해당 브랜치에 가져온다.
-
-- `git status` : 현재의 깃 상태를 확인할 수 있다.
+### 깃 상태 확인하기
+- `git status` : 현재의 깃 상태를 확인한다.
 - `git log` : 저장소에 저장된 버전을 확인할 수 있다.
   - `git log --stat` : 커밋에 관한 파일까지 함께 확인할 수 있다.
   - `git log --oneline` : 커밋에 관한 내용을 간략하게 확인할 수 있다.
@@ -85,11 +84,15 @@ $ git config --global core.pager "cat"
   - `git log [브랜치명]..[브랜치명]` : 두 브랜치의 차이를 알 수 있다.
 - `git diff` : 변경 사항을 확인할 수 있다.
 
+<br/>
+
 ### tracked 파일과 untracked 파일
 - tracked : 한 번이라도 커밋한 파일의 경우 수정 시 내용을 바로 추적한다.
    - `git stash` : 수정중인 파일 감추기
    - `git stash pop` : 감춘 파일 원상복귀하기
 - untracked : 한 번도 깃에서 버전 관리를 하지 않았기 때문에 수정 내역을 추적하지 않는다.
+
+<br/>
 
 ### 취소하기
 - `git checkout -- "file name"` : 수정한 내용을 취소한다. (tracked된 파일 중 수정하고 있는 사항을 취소한다.)
@@ -98,37 +101,38 @@ $ git config --global core.pager "cat"
   - `git reset --hard "복사한 커밋해시"` : `git log`를 통해 이동할 커밋해시를 선택한 후 명령어를 입력하면 해당 커밋이 가장 최신 커밋으로 변경된다.
 - `git revert "복사한 커밋해시"` : 커밋을 되돌리되 삭제하지 않고 보관한다.
 
+<br/>
 
+### 브랜치
+- `git branch` : 브랜치를 확인할 수 있다.
+- `git branch [브랜치명]` : 브랜치를 생성한다.
+- `git checkout [브랜치명] || git switch [브랜치명]` : 해당 브랜치로 이동한다.
+- `git merge [브랜치명]` : 현재 checkout되어 있는 브랜치에 해당 브랜치를 병합한다.
+- `git branch -d [브랜치명]` : 저장소에서 브랜치를 삭제하는 것이 아니라 로컬에서 해당 브랜치 내역을 삭제한다.
 
-### 브랜치란?
-1. `git branch` : 브랜치를 확인할 수 있다.
-2. `git branch [브랜치명]` : 브랜치를 생성한다.
-3. `git checkout [브랜치명] || git switch [브랜치명]` : 해당 브랜치로 이동한다.
-4. `git merge [브랜치명]` : 현재 checkout되어 있는 브랜치에 해당 브랜치를 병합한다.
-5. `git branch -d [브랜치명]` : 저장소에서 브랜치를 삭제하는 것이 아니라 로컬에서 해당 브랜치 내역을 삭제한다.
+<br/>
 
-### 충돌
-
-
-### remote
-생성한 지역저장소를 원격 저장소와 연결하기
-1. `git remote add [저장소이름] [깃허브주소]` : 연결할 깃허브 주소와 저장소 이름을 설정한다.
+### 원격
+#### 생성한 지역저장소를 원격 저장소와 연결하기
+- `git remote add [저장소이름] [깃허브주소]` : 연결할 깃허브 주소와 저장소 이름을 설정한다.
    - `git remote -v` : 원격저장소를 확인한다.
 
-### 레포 2개 연결하는 법
-1. git remote로 각각의 원격 저장소를 등록한다.
-2. 새로 브랜치를 만든다.
-3. 만든 브랜치를 푸시한다.
-
-```console
-git remote add myrepo 깃허브주소
-git branch newbranch
-git checkout newbranch
-git push myrepo newbranch
-```
-
 #### 원격저장소 복제하기
-- `git clone [깃허브주소] [저장할폴더이름]` : 원격저장소를 복제하여 지역저장소로 가져온다.
+- `git clone [깃허브주소]` : 원격저장소를 복제하여 지역저장소로 가져온다.
 
 #### 원격브랜치 정보 가져오기
 - `git fetch` : 커밋을 가져와 합치는 풀 명령과 다르게 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 
+
+
+<br/>
+
+
+## 한 개의 로컬 저장소를 여러 개의 원격 저장소와 연결하기
+`git remote`로 각각의 원격 저장소를 등록한 후 브랜치를 새로 생성한다. 그 브랜치를 푸시한다.
+
+```console
+git remote add 주소이름 깃허브주소
+git branch 브랜치이름
+git checkout 브랜치이름
+git push 주소이름 브랜치이름
+```
