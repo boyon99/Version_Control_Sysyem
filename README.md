@@ -97,7 +97,7 @@ $ git config --global core.pager "cat"
 ### 취소하기
 - `git checkout -- "file name"` : 수정한 내용을 취소한다. (tracked된 파일 중 수정하고 있는 사항을 취소한다.)
 - `git reset HEAD "file name"` : 스테이징 되어 있는 내용을 취소한다.
-- `git reest HEAD^` : 가장 마지막에 한 커밋을 취소한다.
+- `git reset HEAD^` : 가장 마지막에 한 커밋을 취소한다.
   - `git reset --hard "복사한 커밋해시"` : `git log`를 통해 이동할 커밋해시를 선택한 후 명령어를 입력하면 해당 커밋이 가장 최신 커밋으로 변경된다.
 - `git revert "복사한 커밋해시"` : 커밋을 되돌리되 삭제하지 않고 보관한다.
 
