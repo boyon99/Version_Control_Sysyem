@@ -131,3 +131,12 @@ git branch 브랜치이름
 git checkout 브랜치이름
 git push 주소이름 브랜치이름
 ```
+
+<br/>
+
+## PR한 내용 병합하는 방법
+`git remote`로 Fork한 저장소의 주소를 등록한다. 그 후 merge한다.
+
+```console
+git merge [저장소이름]/[해당저장소의브랜치이름] // git merge master/develop
+```
