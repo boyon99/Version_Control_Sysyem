@@ -126,10 +126,10 @@ $ git config --global core.pager "cat"
 `git remote`로 각각의 원격 저장소를 등록한 후 브랜치를 새로 생성한다. 그 브랜치를 푸시한다.
 
 ```console
-git remote add 주소이름 깃허브주소
-git branch 브랜치이름
-git checkout 브랜치이름
-git push 주소이름 브랜치이름
+git remote add [저장소이름] [깃허브주소]
+git branch [브랜치이름]
+git checkout [브랜치이름]
+git push [저장소이름] [브랜치이름]
 ```
 
 <br/>
@@ -138,5 +138,6 @@ git push 주소이름 브랜치이름
 `git remote`로 Fork한 저장소의 주소를 등록한다. 그 후 merge한다.
 
 ```console
+git remote add [저장소이름] [깃허브주소]
 git merge [저장소이름]/[해당저장소의브랜치이름] // git merge master/develop
 ```
