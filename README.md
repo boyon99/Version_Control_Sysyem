@@ -139,5 +139,7 @@ git push [저장소이름] [브랜치이름]
 
 ```console
 git remote add [저장소이름] [깃허브주소]
-git merge [저장소이름]/[해당저장소의브랜치이름] // git merge master/develop
+git checkout [저장소이름]/[해당저장소의브랜치이름] // 해당 저장소의 브랜치로 이동한다.
+// 해당 브랜치의 내용을 업데이트하거나 저장소를 삭제 후에 다시 추가한다. 
+git merge [저장소이름]/[해당저장소의브랜치이름] 
 ```
