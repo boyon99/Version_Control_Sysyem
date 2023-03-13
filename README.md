@@ -1,4 +1,4 @@
-# Version_Control_Sysyem
+# Version_Control_System
 커맨드 라인 인터페이스 방식(Command Line Interface, CLI)을 통한 깃 활용 실습
 
 
