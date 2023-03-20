@@ -149,6 +149,7 @@ git merge [저장소이름]/[해당저장소의브랜치이름]
 
 ## 생성한 지역저장소를 로컬 저장소에 올리는 방법
 ```console
+git init
 git branch -M main
 git remote add origin https://github.com/boyon99/react-todo.git
 git push -u origin main
