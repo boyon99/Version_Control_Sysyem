@@ -115,6 +115,7 @@ $ git config --global core.pager "cat"
 ### 원격
 - `git remote add [저장소이름] [깃허브주소]` : 연결할 깃허브 주소와 저장소 이름을 설정한다.
    - `git remote -v` : 원격저장소를 확인한다.
+   - `git remote remove [저장소이름]` : 원격저장소를 삭제한다.
 - `git clone [깃허브주소]` : 원격저장소를 복제하여 지역저장소로 가져온다.
 - `git fetch` : 커밋을 가져와 합치는 풀 명령과 다르게 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 
 
@@ -142,4 +143,13 @@ git remote add [저장소이름] [깃허브주소]
 git checkout [저장소이름]/[해당저장소의브랜치이름] // 해당 저장소의 브랜치로 이동한다.
 // 해당 브랜치의 내용을 업데이트하거나 저장소를 삭제 후에 다시 추가한다. 
 git merge [저장소이름]/[해당저장소의브랜치이름] 
+```
+
+<br/>
+
+## 생성한 지역저장소를 로컬 저장소에 올리는 방법
+```console
+git branch -M main
+git remote add origin https://github.com/boyon99/react-todo.git
+git push -u origin main
 ```
